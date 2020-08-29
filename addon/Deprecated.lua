@@ -1,4 +1,5 @@
 local _, ns = ...
+if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then ns.GLOBALS = nil return end
 
 Deprecated_AlwaysPrint = true
 Deprecated_LogTable = {}

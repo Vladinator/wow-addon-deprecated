@@ -1,8 +1,8 @@
-## Interface: 90000
+## Interface: 80300
 ## Title: Deprecated
 ## Notes: Helps developers notice deprecated API used in their addons.
 ## Author: Vladinator
-## Version: 9.0.0.200829
+## Version: 8.3.5.200829
 ## SavedVariables: Deprecated_AlwaysPrint, Deprecated_LogTable
 ## DefaultState: disabled
 Globals.lua
