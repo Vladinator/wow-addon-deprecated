@@ -3,6 +3,6 @@
 ## Notes: Helps developers notice deprecated API used in their addons.
 ## Author: Vladinator
 ## Version: 9.0.0.200829
-## SavedVariables: 
+## SavedVariables: Deprecated_AlwaysPrint, Deprecated_LogTable
 Globals.lua
 Deprecated.lua
