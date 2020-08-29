@@ -48,7 +48,7 @@ class Utils {
 
 class WowTools {
     constructor() {
-        this._filesUrl = 'https://wow.tools/files/scripts/api.php?length=25&search[regex]=true&search[value]=type:lua,deprecated_%';
+        this._filesUrl = 'https://wow.tools/files/scripts/api.php?length=25&search[regex]=true&search[value]=type:lua,deprecated_8%';
         this._fileUrl = 'https://wow.tools/casc/file/chash?filedataid=%d&contenthash=%s&buildconfig=%s&cdnconfig=%s';
     }
     async getFiles() {
