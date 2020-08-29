@@ -1,0 +1,8 @@
+## Interface: 90000
+## Title: Deprecated
+## Notes: Helps developers notice deprecated API used in their addons.
+## Author: Vladinator
+## Version: 9.0.0.200829
+## SavedVariables: 
+Globals.lua
+Deprecated.lua

@@ -134,7 +134,7 @@ class Lua {
     // process lua files through the globals checker (make sure you update config.json with the path to your find globals script)
     const globals = await Lua.GetGlobals(luafiles);
     // output the globals into globals.lua for use with addon
-    const luafile = path.join(__dirname, 'globals.lua');
+    const luafile = path.join(__dirname, 'addon', 'Globals.lua');
     let luaglobals = JSON.stringify(globals);
     luaglobals = `local _, ns = ...\r\nns.GLOBALS = {${luaglobals.substr(1, luaglobals.length - 2)}}\r\n`;
     fs.writeFile(luafile, luaglobals, 'utf8', err => err ? console.error(err) : console.log('Done!'));
