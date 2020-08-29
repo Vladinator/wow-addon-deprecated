@@ -4,5 +4,6 @@
 ## Author: Vladinator
 ## Version: 9.0.0.200829
 ## SavedVariables: Deprecated_AlwaysPrint, Deprecated_LogTable
+## DefaultState: disabled
 Globals.lua
 Deprecated.lua
