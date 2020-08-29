@@ -1,17 +1,25 @@
 local _, ns = ...
 
-Deprecated_AlwaysPrint = false
+Deprecated_AlwaysPrint = true
 Deprecated_LogTable = {}
+
+local IGNORE_PATTERNS = {
+    FRAMEXML = "^%[string \"@Interface\\FrameXML\\",
+    BLIZZ_DEPRECATED = "^%[string \"@Interface\\AddOns\\Blizzard_Deprecated\\",
+}
 
 local function createHandler(name)
     return function(...)
         local warnings = Deprecated_LogTable[name]
         local stack = debugstack(2)
         stack = {strsplit("\r\n", stack)}
+        if strfind(stack[2], IGNORE_PATTERNS.FRAMEXML) or strfind(stack[2], IGNORE_PATTERNS.BLIZZ_DEPRECATED) then
+            return
+        end
         if Deprecated_AlwaysPrint or not warnings then
-            print("[Deprecated]", name, "=>", ...)
+            print("|cffFF5555[Deprecated]|cffFFFF00", name, "|cffFFFFFF=>", ...)
             for _, line in ipairs(stack) do
-                print(line)
+                print("|cffFF9999", line)
             end
         end
         if not warnings then
