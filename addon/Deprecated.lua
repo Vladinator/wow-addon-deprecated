@@ -37,7 +37,9 @@ for _, name in ipairs(ns.GLOBALS) do
     local value = _G[name]
 
     if type(value) == "function" then
-        hooksecurefunc(name, createHandler(name))
+        hooksecurefunc(name, createHandler(name)) -- it exists but is going away so let's warn the user when used
+    elseif value == nil then
+        _G[name] = createHandler(name) -- it doesn't exist so it's probably already removed so let's warn the user to fix their code (also we assume this is a function, we might have to fix the generation so the db has info if its a function or something else so we can do the right decision here)
     elseif value ~= nil then
         -- hooksecurefunc(gmetatable, "__index", createHandler(name)) -- TODO: there is no __index but we would like to detect when a global is read if possible
     end

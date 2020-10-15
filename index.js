@@ -104,7 +104,7 @@ class Lua {
             const fileGlobals = Lua.ParseFindGlobalsOutput(result);
             fileGlobals.forEach(name => globals.indexOf(name) === -1 && globals.push(name));
         });
-        return globals;
+        return globals.filter(Lua.FilterLeakedGlobalVariableName);
     }
     static ParseFindGlobalsOutput(result) {
         const globals = [];
@@ -116,6 +116,9 @@ class Lua {
             globals.indexOf(name) === -1 && globals.push(name);
         });
         return globals;
+    }
+    static FilterLeakedGlobalVariableName(name) {
+        return !/^(timeMod|expirationTime|duration|debuffType|count|texture)$/.test(name);
     }
 }
 
